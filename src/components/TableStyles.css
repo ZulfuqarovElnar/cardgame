@@ -8,3 +8,8 @@
     border: 1px solid #fff;
     color: #fff;
 }
+img {
+    width: 100%;
+    height: auto;
+    margin-top: 2%;
+}
