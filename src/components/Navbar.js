@@ -21,10 +21,19 @@ const [color, setColor] = useState(false)
 
   return (
     <div className={color ? 'header header-bg' : 'header'}>
-        <Link to='/'><h1>Logo</h1></Link>
+        <Link to='/'><h1>Card</h1></Link>
         <ul className={click ? 'nav-menu active' : 'nav-menu'}>
             <li>
                 <Link to='/'>Home</Link>
+            </li>
+            <li>
+                <Link to='/pricing'>Pricing</Link>
+            </li>
+            <li>
+                <Link to='/training'>Training</Link>
+            </li>
+            <li>
+                <Link to='/contact'>Contact</Link>
             </li>
         </ul>
         <div className='hamburger' onClick={handleClick}>
