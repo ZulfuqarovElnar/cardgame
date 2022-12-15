@@ -1,7 +1,7 @@
 
-import React from 'react'
-import  Card  from '../components/Card'
-import './TableStyles.css'
+import React from 'react';
+import  Card  from './Card';
+import './TableStyles.css';
 
 const Table = () => {
   return (
