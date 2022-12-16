@@ -2,10 +2,10 @@ import React from 'react'
 import './CardStyles.css'
 
 class Card extends React.Component {
-    constructor(props) {
-      super(props);
+      constructor(props) {
+        super(props);
       this.state = {isToggleOn: true};
-      this.image = `assets/card${Math.floor(Math.random()*10)+1}.jpg`
+      this.image = `assets/card${props.number}.jpg`
       this.handleClick = this.handleClick.bind(this);
     }
   
