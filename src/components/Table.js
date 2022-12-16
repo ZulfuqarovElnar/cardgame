@@ -8,15 +8,28 @@ import './TableStyles.css';
 class Table extends React.Component{
   constructor(props) {
     super(props);
-    this.numbers = this.shuffle([1,1,2,4,6])
+    this.numbers = this.shuffle(this.array())
     
   }
+   
+  array = function array(){
+    const number1 =Math.floor(Math.random()*10)+1
+    const number2 =Math.floor(Math.random()*10)+1
+    const number3 = Math.floor(Math.random()*10)+1
+    const number4 = Math.floor(Math.random()*10)+1
+    
 
+    return [number1,number2,number3,number4,number1];
+  }
+
+      
+      
+      
   shuffle = function shuffle(array) {
     let currentIndex = array.length,  randomIndex;
   
     // While there remain elements to shuffle.
-    while (currentIndex != 0) {
+    while (currentIndex !== 0) {
   
       // Pick a remaining element.
       randomIndex = Math.floor(Math.random() * currentIndex);
