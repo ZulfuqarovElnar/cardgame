@@ -9,9 +9,10 @@ import './TableStyles.css';
 class Table extends React.Component{
   constructor(props) {
     super(props);
-    this.state = {gameState:"Oyuna Davam"}
+    this.state = {gameState:<h3>Oyuna Davam</h3>}
     this.numbers =  this.shuffle(this.array())
     this.hadleGameState = this.hadleGameState.bind(this);
+    this.onReset = this.onReset.bind(this);
     this.timeout = false;
   }
   
@@ -30,9 +31,9 @@ class Table extends React.Component{
             const [firstCard, secondCard] = openCards
           
             firstCard.dataset.number === secondCard.dataset.number ?
-              this.setState(prevState => ({gameState:"Qalibsiniz"})) //Qalib gelmek
+              this.setState(prevState => ({gameState:<h3>Təbriklər, Qalibsiniz!</h3>})) //Qalib gelmek
               :
-              this.setState(prevState => ({gameState:"Meglubsunuz"}))  //Meglub olmaq
+              this.setState(prevState => ({gameState:<h3>Təəssüflər, Uduzdunuz.</h3>}))  //Meglub olmaq
 
             // Butun kartlari ac!
             const cards = document.querySelectorAll('.card-holder');
@@ -73,26 +74,38 @@ class Table extends React.Component{
   
     return array;
   }
-  
+  onReset() {
+    window.location.reload() 
+}
   
 render () {
   
   const result = this.numbers.map( (number,index) => {
     return (
-      <div key={index.toString()} onClickCapture={this.hadleGameState}  className='blok col-4'><Card number={number} />
+      <div key={index.toString()} onClickCapture={this.hadleGameState}  className='blok col-4'><Card number={number} /> 
       </div>
     
     )})
+    
 
-  const annoucement = <div className='blok col-4'>
+  const annoucement = <div className='annoucement'>
     { this.state.gameState }
   </div>
+
+  const reset = <button type="button"className='btn' onClick={ this.onReset }>
+                  <span><h3>Təkrar başla</h3></span>
+                </button>
+
   return (
     <div className='row'>
-          {result}
+          {result} 
 
           {annoucement}
+
+
+          {reset}
     </div>
+   
   )
 }
 
